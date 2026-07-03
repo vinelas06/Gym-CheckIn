@@ -1,4 +1,4 @@
-import type { UsersRepository } from "@/repositories/users-repository.js";
+import type { UsersRepository } from "@/repositories/users.repository.js";
 import { InvalidCredentialsError } from "./errors/invalid-credentials-errors.js";
 import { compare } from "bcryptjs";
 import type { User } from "@prisma/client";
@@ -30,6 +30,7 @@ export class AuthenticateUseCase {
     if (!doesPasswordMatches) {
       throw new InvalidCredentialsError();
     }
+
 
     return {
       user,
